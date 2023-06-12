@@ -12,10 +12,10 @@
         class="roomListRoom__author"
       >
         <div class="avatar avatar--small">
-          <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+          <img src="{{ room_message.user.avatar.url }}" />
         </div>
         <p>
-          @{{ room_message.user }}
+          @{{ room_message.user.username }}
           <span>{{ room_message.created|naturaltime }}</span>
         </p>
       </a>

@@ -81,9 +81,9 @@
               <p>Hosted By</p>
               <a href="#" class="room__author">
                 <div class="avatar avatar--small">
-                  <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                  <img src="{{ room.host.avatar.url }}" />
                 </div>
-                <span>@{{ room.host }}</span>
+                <span>@{{ room.host.username }}</span>
               </a>
             </div>
             <div class="room__details">{{ room.description }}</div>
@@ -97,11 +97,9 @@
                   <div class="thread__author">
                     <a href="#" class="thread__authorInfo">
                       <div class="avatar avatar--small">
-                        <img
-                          src="https://randomuser.me/api/portraits/men/37.jpg"
-                        />
+                        <img src="{{ room_message.user.avatar.url }}" />
                       </div>
-                      <span>@{{ room_message.user }}</span>
+                      <span>@{{ room_message.user.username }}</span>
                     </a>
                     <span class="thread__date">
                       {{ room_message.created|naturaltime }}
@@ -158,11 +156,11 @@
           {% for user in participants %}
           <a href="{% url 'profile' user.id %}" class="participant">
             <div class="avatar avatar--medium">
-              <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+              <img src="{{ user.avatar.url }}" />
             </div>
             <p>
-              {{ user }}
-              <span>@{{ user }}</span>
+              {{ user.name }}
+              <span>@{{ user.username }}</span>
             </p>
           </a>
           {% endfor %}
